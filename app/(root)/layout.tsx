@@ -1,0 +1,12 @@
+
+
+const RootLayout = ({children}:{children: React.ReactNode}) => {
+  return (
+    <main>
+        SIDEBAR
+        {children}
+    </main>
+  )
+}
+
+export default RootLayout
