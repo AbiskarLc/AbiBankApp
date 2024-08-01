@@ -2,10 +2,29 @@
 import { type ClassValue, clsx } from "clsx";
 import qs from "query-string";
 import { twMerge } from "tailwind-merge";
+import * as z from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const formSchema = (type: string) =>  z.object({
+  firstName:  type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  address1: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  city: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  state: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(5, { message: "Password must be at least 5 character" })
+    .regex(/^(?=.*[\W])(?=.*[A-Z]).{5,}$/, {
+      message: "Must contain an Uppercase letter and special character",
+    }),
+});
 
 // FORMAT DATE TIME
 export const formatDateTime = (dateString: Date) => {

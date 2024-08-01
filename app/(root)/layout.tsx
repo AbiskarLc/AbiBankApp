@@ -1,10 +1,12 @@
 import MobileNav from "@/components/MobileNav"
 import SideBar from "@/components/SideBar"
+import { getLoggedInUser } from "@/lib/actions/user.actions"
 import Image from "next/image"
-const RootLayout = ({children}:{children: React.ReactNode}) => {
-  const loggedIn = {
-    firstName: 'Abiskar ',lastName:'Lamichhane'
-  }
+import { redirect } from "next/navigation"
+const RootLayout = async ({children}:{children: React.ReactNode}) => {
+  const loggedIn = await getLoggedInUser();
+
+  if(!loggedIn)  redirect("/sign-in")
   return (
     <main className=" flex h-screen font-inter">
        <SideBar user={loggedIn}/>
