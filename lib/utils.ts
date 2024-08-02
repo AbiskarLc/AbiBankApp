@@ -13,7 +13,7 @@ export const formSchema = (type: string) =>  z.object({
   lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
   address1: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
   city: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
-  state: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
+  state: type === 'sign-in' ? z.string().optional() : z.string().min(2,{message:"field must have at least 3 character"}),
   postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
   dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
   ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3,{message:"field must have at least 3 character"}),
