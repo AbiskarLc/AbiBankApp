@@ -32,8 +32,6 @@ const TransactionnHistory = async ({ searchParams: { page , id } }: {searchParam
     indexOfLastTransaction
   );
 
-  console.log(currentTransactions)
-
   return (
     <div className=" transactions">
       <div className="transactions-header">

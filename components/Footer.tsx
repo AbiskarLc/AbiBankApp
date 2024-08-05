@@ -10,7 +10,6 @@ const Footer = ({ user, type = "desktop" }: FooterProps) => {
     try {
       const response = await signOut();
 
-      console.log(response)
       if (response) {
         router.push("/sign-in");
       }
