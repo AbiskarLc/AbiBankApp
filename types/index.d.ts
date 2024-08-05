@@ -50,6 +50,7 @@ declare type NewUserParams = {
 };
 
 declare type Account = {
+  shareableId: string;
   id: string;
   availableBalance: number;
   currentBalance: number;
@@ -83,6 +84,7 @@ declare type Transaction = {
 };
 
 declare type Bank = {
+  shareableId: any;
   $id: string;
   accountId: string;
   bankId: string;
@@ -316,7 +318,7 @@ declare interface createBankAccountProps {
   accountId: string;
   bankId: string;
   fundingSourceUrl: string;
-  sharableId: string;
+  shareableId: string;
 }
 
 declare interface getBanksProps {
